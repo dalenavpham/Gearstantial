@@ -1,6 +1,8 @@
 <h1>Hello World!</h1>
 <%= form_tag("/items") do %>
   <p>My form goes here</p>
-
+  <%= hidden_field_tag(:item_id) %>
+  <%= label_tag(:name, "Item Name: ") %>
+  <%- text_field(:items, :name) %>
   <%= submit_tag("Submit") %>
 <% end %>
