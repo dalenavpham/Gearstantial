@@ -9,7 +9,7 @@
   <%= text_field_tag('[items][serial]', :serial) %>
   
   <%= label_tag(:category, "Category: ") %>
-  <%= select(:category, "", [['Select', 1], ['iMac', 2], ['Air', 3], ['MBP 13', 4], ['MBP 15', 5], ['iPhone', 6], ['iPad', 7], ['Android', 8]]) %> 
+  <%= select_tag('[items][category]', options_for_select(["Select", "iMac", "Air", "MBP 13", "MBP 15", "iPhone", "iPad", "Android"])) %> 
   
   <%= label_tag(:year, "Production Year: ") %>
   <%= text_field_tag('[items][year]', "") %>
