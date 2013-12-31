@@ -7,6 +7,7 @@ Gearstantial::Application.routes.draw do
 
   # Example of regular route:
   get 'items/new' => 'items#new'
+  get 'items/edit' => 'items#edit'
   get 'items' => 'items#index'
   post 'items' => 'items#create' 
 end

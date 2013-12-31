@@ -1,10 +1,13 @@
 class ItemsController < ApplicationController
 
   def new 
+
   end
 
   def create
-    flash[:notice] = "Item Created!"
+    item = params[:items]
+
+    flash[:notice] = "Form data recieved: #{item}"
     render :index
   end
 

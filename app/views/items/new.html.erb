@@ -1,18 +1,18 @@
 <h1>Enter Item!</h1>
 <%= form_tag("/items") do %>
   <p>My form goes here</p>
-  <%= hidden_field_tag(:item_id) %>
+
   <%= label_tag(:name, "Item Name: ") %>
-  <%= text_field(:name, "") %>
+  <%= text_field_tag('[items][name]', :name) %>
+
   <%= label_tag(:serial, "Serial: ") %>
-  <%= text_field(:serial, "") %>
-  <%= label_tag(:category, "Category: ") %>
-  <%= select(:category, "", [['Select', 1], ['iMac', 2], ['Air', 3], ['MBP 13', 4], ['MBP 15', 5], ['iPhone', 6], ['iPad', 7], ['Android', 8]]) %>
-  <%= label_tag(:year, "Production Year: ") %>
-  <%= date_field(:year, "") %>
-  <%= label_tag(:purchase_date, "") %>
-  <%= datetime_local_field(:item, :purchase_date) %>
-  <%= label:tag(:purchase_price, "") %>
+  <%= text_field_tag('[items][serial]', :serial) %>
   
+  <%= label_tag(:category, "Category: ") %>
+  <%= select(:category, "", [['Select', 1], ['iMac', 2], ['Air', 3], ['MBP 13', 4], ['MBP 15', 5], ['iPhone', 6], ['iPad', 7], ['Android', 8]]) %> 
+  
+  <%= label_tag(:year, "Production Year: ") %>
+  <%= text_field_tag('[items][year]', "") %>
+
   <%= submit_tag("Submit") %>
 <% end %>

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20131218023122) do
     t.string   "username"
   end
 
-  create_table "items", force: true do |t|
+  create_table "items ", force: true do |t|
     t.string   "name"
     t.string   "serial"
     t.string   "category"
