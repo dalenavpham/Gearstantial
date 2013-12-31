@@ -9,10 +9,11 @@ class ItemsController < ApplicationController
     item.save
 
     flash[:notice] = "Item was created with id##{item.id}"
-    render :index
+    redirect_to '/items', flash: flash
   end
 
   def index
+    @items = Item.all
   end
 
 end

@@ -3,6 +3,12 @@
 <% end %>
 
 <h2> Your Items</h2>
-<!--<a href ="/items/new">Add Item</a> how you would do it in HTML-->
+
+<ul>
+  <% @items.each do |item| %>
+    <li><%= item.name %> <%= item.serial %> <%= item.category %> <%= item.year %></li>
+  <% end %>
+</ul>
+
 <%= link_to  "Add Item", "/items/new" %>
 <%= link_to  "Edit Item", "/items/edit" %>
