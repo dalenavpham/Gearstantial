@@ -1,0 +1,14 @@
+<h2>Item Details</h2>
+ <ul>
+   <li>Item Name: <%= @item.name %></li>
+   <li>Serial: <%= @item.serial %> </li>
+   <li>Category: <%= @item.category %></li>
+   <li>Production Year: <%= @item.year %></li>
+   <li>Purchase Date: <%= @item.purchase_date %></li>
+   <li>Purchase Price: $<%= @item.purchase_price %></li>
+   <li>Created On: <%= @item.created_at %></li>
+   <li>Updated On: <%= @item.updated_at %></li>
+</ul>
+
+<%= link_to  "Home", root_path %> <br />
+<%= link_to  "Add Item", items_new_path %>

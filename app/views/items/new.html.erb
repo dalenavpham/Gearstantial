@@ -1,18 +1,28 @@
 <h1>Enter Item!</h1>
 <%= form_tag("/items") do %>
-  <p>My form goes here</p>
+  <p>Please Fill Out Form</p>
+  <ol>
+    <li><%= label_tag(:name, "Item Name: ") %>
+    <%= text_field_tag('[items][name]', "") %></li>
 
-  <%= label_tag(:name, "Item Name: ") %>
-  <%= text_field_tag('[items][name]', :name) %>
+    <li><%= label_tag(:serial, "Serial: ") %>
+    <%= text_field_tag('[items][serial]', "") %></li>
+    
+    <li><%= label_tag(:category, "Category: ") %>
+    <%= select_tag('[items][category]', options_for_select(["Select", "iMac", "Air", "MBP 13", "MBP 15", "iPhone", "iPad", "Android"])) %> </li>
+    
+    <li><%= label_tag(:year, "Production Year: ") %>
+    <%= number_field_tag('[items][year]', "") %></li>
 
-  <%= label_tag(:serial, "Serial: ") %>
-  <%= text_field_tag('[items][serial]', :serial) %>
-  
-  <%= label_tag(:category, "Category: ") %>
-  <%= select_tag('[items][category]', options_for_select(["Select", "iMac", "Air", "MBP 13", "MBP 15", "iPhone", "iPad", "Android"])) %> 
-  
-  <%= label_tag(:year, "Production Year: ") %>
-  <%= text_field_tag('[items][year]', "") %>
+    <li><%= label_tag(:purchase_date, "Purchase Date: ") %>
+    <%= date_field_tag('[items][purchase_date]', "") %> </li>
+    <!-- how do you remove the time stamp and just capture the date-->
+
+    <li><%= label_tag(:purchase_price, "Purchase Price: ") %>
+    <%= number_field_tag('[items][purchase_price]', "") %></li>  
+  </ol>
 
   <%= submit_tag("Submit") %>
 <% end %>
+
+<p>I change my mind go back to <%= link_to  "Home", root_path %></p>
