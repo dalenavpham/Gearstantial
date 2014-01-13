@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     item = Item.new(name: params[:items][:name], serial: params[:items][:serial], category: params[:items][:category], year: params[:items][:year], purchase_date: params[:items][:purchase_date], purchase_price: params[:items][:purchase_price])
     item.save
 
-    flash[:notice] = "Item was created with id##{item.id}"
+    flash[:notice] = "Item was created with id# {item.id}"
     redirect_to '/items', flash: flash
   end
 

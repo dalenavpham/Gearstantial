@@ -1,7 +1,30 @@
 <h2>Edit Item</h2>
+<%= form_tag("/items") do %>
+  <% flash.each do |name, msg| %>
+    <p><%= "#{name} - #{msg}" %>To Edit, modify the form inputs</p>
+  <% end %>
+  <ol>
+    <li><%= label_tag(:name, "Item Name: ") %>
+    <%= text_field_tag('[items][name]', :name) %></li>
 
-<% flash.each do |name, msg| %>
-  <p><%= "#{name} - #{msg}" %></p>
+    <li><%= label_tag(:serial, "Serial: ") %>
+    <%= text_field_tag('[items][serial]', :serial) %></li>
+    
+    <li><%= label_tag(:category, "Category: ") %>
+    <%= select_tag('[items][category]', options_for_select(["Select", "iMac", "Air", "MBP 13", "MBP 15", "iPhone", "iPad", "Android"])) %> </li>
+    
+    <li><%= label_tag(:year, "Production Year: ") %>
+    <%= number_field_tag('[items][year]', :year) %></li>
+
+    <li><%= label_tag(:purchase_date, "Purchase Date: ") %>
+    <%= date_field_tag('[items][purchase_date]', :purchase_date) %> </li>
+    <!-- how do you remove the time stamp and just capture the date-->
+
+    <li><%= label_tag(:purchase_price, "Purchase Price: ") %>
+    <%= number_field_tag('[items][purchase_price]', :purchase_price) %></li>  
+  </ol>
+
+  <%= submit_tag("Resubmit") %>
 <% end %>
 
-<%= link_to  "Add Item", items_edit_path %>
+<%= link_to  "Add Item", items_new_path %>
