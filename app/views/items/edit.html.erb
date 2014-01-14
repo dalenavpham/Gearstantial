@@ -1,5 +1,5 @@
 <h2>Edit Item</h2>
-<%= form_tag("/items") do %>
+<%= form_tag("/items/update") do %>
   <% flash.each do |name, msg| %>
     <p><%= "#{name} - #{msg}" %>To Edit, modify the form inputs</p>
   <% end %>
@@ -27,4 +27,4 @@
   <%= submit_tag("Resubmit") %>
 <% end %>
 
-<%= link_to  "Add Item", items_new_path %>
+<%= link_to  "Home", root_path %>

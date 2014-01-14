@@ -15,6 +15,13 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])   
   end
 
+  def edit
+    #similar to show, but you are resubmitting the data and replacing its contents with the new content
+    # common with an if statement (sucess or not?)
+    @item = Item.find(params[:id])  
+    
+  end
+
   def index
     @items = Item.all
   end
