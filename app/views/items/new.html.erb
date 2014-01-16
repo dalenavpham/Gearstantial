@@ -1,6 +1,8 @@
 <h1>Enter Item!</h1>
+<p>Return <%= link_to  "Home", root_path %></p>
+
 <%= form_tag("/items") do %>
-  <p>Please Fill Out Form</p>
+  <h3>Please Fill Out Form</h3>
   <ol>
     <li><%= label_tag(:name, "Item Name: ") %>
     <%= text_field_tag('[items][name]', "") %></li>
@@ -24,5 +26,3 @@
 
   <%= submit_tag("Submit") %>
 <% end %>
-
-<p>I change my mind go back to <%= link_to  "Home", root_path %></p>

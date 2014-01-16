@@ -3,11 +3,25 @@
 <% end %>
 
 <h2> Your Items</h2>
-<p>To view item details, click on item name</p>
-<ul>
-  <% @items.each do |item| %>
-    <li><%= link_to item.name, "items/#{item.id}" %> <%= item.serial %> <%= item.category %> <%= item.year %> <%= item.purchase_date %> <%= item.purchase_price %></li> 
-  <% end %>
-</ul>
-
 <%= link_to  "Add Item", new_item_path %> <br />
+<pre>To view item details, click on item name</pre>
+<table>
+  <tr>
+    <td>Item Name</td>
+    <td>Serial</td>
+    <td>Type</td>
+    <td>Year Made</td>
+    <td>Date Purchased</td>
+    <td>Purchase Price</td>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= link_to item.name, "items/#{item.id}" %> </td>
+      <td><%= item.serial %> </td>
+      <td><%= item.category %> </td>
+      <td><%= item.year %> </td>
+      <td><%= item.purchase_date %> </td>
+      <td><%= item.purchase_price %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,4 +1,9 @@
 <h2>Item Details</h2>
+<p><%= link_to  "Back", root_path %>  
+  <%= link_to  "Edit Item", "/items/#{@item.id}/edit" %>   
+  <%= link_to  "Add Item", new_item_path %>
+  <%= link_to "Remove Item", "/items/#{@item.id}", :confirm => 'Are you sure?', :method => :delete %>
+</p>
  <ul>
    <li>Item Name: <%= @item.name %></li>
    <li>Serial: <%= @item.serial %> </li>
@@ -10,6 +15,4 @@
    <li>Updated On: <%= @item.updated_at %></li>
 </ul>
 
-<%= link_to  "Home", root_path %> <br />
-<%= link_to  "Edit Item", edit_item_path(@item) %> <br />
-<%= link_to  "Add Item", new_item_path %>
+
