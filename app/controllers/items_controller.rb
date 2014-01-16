@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
 
-  def new 
+  def new
+    @item = Item.new
   end
 
   def create
-    item = Item.new(name: params[:items][:name], serial: params[:items][:serial], category: params[:items][:category], year: params[:items][:year], purchase_date: params[:items][:purchase_date], purchase_price: params[:items][:purchase_price])
+    item = Item.new(permitted_params)  
     item.save
 
     flash[:notice] = "Item was created with id # #{item.id}"
@@ -39,6 +40,12 @@ class ItemsController < ApplicationController
     item.destroy
     flash[:notice] = "Item name #{item.name} was deleted"
     redirect_to '/items', flash: flash
+  end
+
+  private
+
+  def permitted_params
+    params.require(:item).permit(:name, :serial, :category, :year, :purchase_price)
   end
 
 end

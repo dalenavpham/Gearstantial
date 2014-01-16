@@ -1,28 +1,13 @@
 <h1>Enter Item!</h1>
 <p>Return <%= link_to  "Home", root_path %></p>
+<h3>Please Fill Out Form</h3>
 
-<%= form_tag("/items") do %>
-  <h3>Please Fill Out Form</h3>
-  <ol>
-    <li><%= label_tag(:name, "Item Name: ") %>
-    <%= text_field_tag('[items][name]', "") %></li>
-
-    <li><%= label_tag(:serial, "Serial: ") %>
-    <%= text_field_tag('[items][serial]', "") %></li>
-    
-    <li><%= label_tag(:category, "Category: ") %>
-    <%= select_tag('[items][category]', options_for_select(["Select", "iMac", "Air", "MBP 13", "MBP 15", "iPhone", "iPad", "Android"])) %> </li>
-    
-    <li><%= label_tag(:year, "Production Year: ") %>
-    <%= number_field_tag('[items][year]', "") %></li>
-
-    <li><%= label_tag(:purchase_date, "Purchase Date: ") %>
-    <%= date_field_tag('[items][purchase_date]', "") %> </li>
-    <!-- how do you remove the time stamp and just capture the date-->
-
-    <li><%= label_tag(:purchase_price, "Purchase Price: ") %>
-    <%= number_field_tag('[items][purchase_price]', "") %></li>  
-  </ol>
-
-  <%= submit_tag("Submit") %>
+<%= simple_form_for @item do |f| %>
+  <%= f.input :name %>
+  <%= f.input :serial %>
+  <%= f.input :category, collection: Categories.all %>
+  <%= f.input :year %>
+  <%= f.input :purchase_date, as: :date %>
+  <%= f.input :purchase_price %>
+  <%= f.button :submit %>
 <% end %>
