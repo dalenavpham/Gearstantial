@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
-    item.update(name: params[:items][:name], serial: params[:items][:serial], category: params[:items][:category], year: params[:items][:year], purchase_date: params[:items][:purchase_date], purchase_price: params[:items][:purchase_price])
+    item.update(permitted_params)
     item.save
 
     flash[:notice] = "Item was updated with id # #{item.id}"
