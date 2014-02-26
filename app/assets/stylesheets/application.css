@@ -9,8 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.datepicker
  *= require_tree .
  */
+
+body {
+  margin: 40px auto;
+  padding: 0 40px;
+}
+
 
 table {
   /*border: 1px dashed black;*/
