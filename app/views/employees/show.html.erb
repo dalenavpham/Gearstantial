@@ -1,0 +1,11 @@
+<h2>Employee Details</h2>
+<p><%= link_to  "Back", root_path %>  
+  <%= link_to  "Edit Employee", "/employees/#{@employee.name}/edit" %>   
+  <%= link_to  "Add Employee", new_item_path %>
+  <%= link_to "Remove Employee", "/employees/#{@employee.id}", :confirm => 'Are you sure?', :method => :delete %>
+</p>
+ <ul>
+   <li>Name: <%= @employee.name %></li>
+   <li>Location: <%= @employee.location %> </li>
+   <li>Status: <%= @employee.status %></li>
+</ul>

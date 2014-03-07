@@ -6,7 +6,6 @@
 <%= simple_form_for @item do |f| %>
   <%= f.input :name %>
   <%= f.input :serial %>
-  <%= f.input :category, collection: Categories.all %>
   <%= f.input :year, collection: 2008..2014 %>
   <%= f.input :purchase_date, as: :date %>
   <%= f.input :purchase_price %>

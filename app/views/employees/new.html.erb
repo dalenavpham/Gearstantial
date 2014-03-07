@@ -1,0 +1,10 @@
+<h1>Enter Employee!</h1>
+<p>Return <%= link_to  "Home", root_path %></p>
+<h3>Please Fill Out Form</h3>
+
+<%= simple_form_for @employee, html_options: { class: "form-horizontal" } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :status %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,9 +1,9 @@
 class CreateEmployee < ActiveRecord::Migration
   def change
     create_table :employees do |t|
-      t.string :employee, :name
-      t.string :employee, :location
-      t.string :employee, :status
+      t.string :name
+      t.string :location
+      t.string :status
 
       t.timestamps
     end

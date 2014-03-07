@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20140226030042) do
   end
 
   create_table "employees", force: true do |t|
-    t.string   "employee"
     t.string   "name"
     t.string   "location"
     t.string   "status"

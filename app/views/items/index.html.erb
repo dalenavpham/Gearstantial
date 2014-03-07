@@ -2,28 +2,49 @@
   <p><%= "#{name} - #{msg}" %></p>
 <% end %>
 
-<h2> Your Items</h2>
-<%= link_to  "Add Item", new_item_path %> <br />
-<pre>To view item details, click on item name</pre>
-<table>
+<h2> Inventory!</h2>
+
+<h3>Your Items</h3>
+<%= link_to  "Add Item", new_item_path %> 
+<%= link_to  "Add Employee", new_employee_path %> <br />
+<p>To view item details, click on item name</p>
+<table class="table">
   <tr>
     <td>Item Name</td>
     <td>Serial</td>
-    <td>Type</td>
     <td>Year Made</td>
     <td>Date Purchased</td>
     <td>Purchase Price</td>
-    <td>Location</td>
+    <td>Additional Notes</td>
   </tr>
   <% @items.each do |item| %>
     <tr>
       <td><%= link_to item.name, "items/#{item.id}" %> </td>
       <td><%= item.serial %> </td>
-      <td><%= item.category %> </td>
       <td><%= item.year %> </td>
       <td><%= item.purchase_date %> </td>
       <td><%= item.purchase_price %></td>
-      <td><%= item.location %></td>
+      <tc><%= item.notes %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>Employees</h3>
+<table class="table">
+  <tr>
+    <td>Employee Name</td>
+    <td>Location</td>
+    <td>Status</td>
+    <td>Created On</td>
+    <td>Updated On</td>
+  </tr>
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.name, "employees/#{employee.id}" %> </td>
+      <td><%= employee.location %></td>
+      <td><%= employee.status %></td>
+      <td><%= employee.created_at %></td>
+      <td><%= employee.updated_at %></td>
     </tr>
   <% end %>
 </table>

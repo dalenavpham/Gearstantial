@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(permitted_params)  
+    @my_item = permitted_params
+    puts "hello #{@my_item}"
+    @item = Item.new(@my_item)  
     @item.save
     if @item.save
       redirect_to items_path, notice: "Item was created with id # #{@item.id}"
@@ -32,6 +34,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @employees = Employee.all
   end
 
   def destroy
@@ -44,7 +47,7 @@ class ItemsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:item).permit(:name, :serial, :category, :year, :purchase_date, :purchase_price, :location)
+    params.require(:item).permit(:name, :serial, :year, :purchase_date, :purchase_price, :notes)
   end
 
   def get_date
@@ -56,7 +59,7 @@ class ItemsController < ApplicationController
 
   def find_item
     #binding.pry
-    @item = Item.find(params[permitted_params])
+    @item = Item.find(params[:id])
   end
 
 
