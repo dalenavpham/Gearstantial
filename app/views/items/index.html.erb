@@ -2,12 +2,11 @@
   <p><%= "#{name} - #{msg}" %></p>
 <% end %>
 
-<h2> Inventory!</h2>
+<h2> Substantial Inventory!</h2>
 
-<h3>Your Items</h3>
+<h4>Your Items</h4>
 <%= link_to  "Add Item", new_item_path %> 
-<%= link_to  "Add Employee", new_employee_path %> <br />
-<p>To view item details, click on item name</p>
+<pre>To view item details, click on item name</pre>
 <table class="table">
   <tr>
     <td>Item Name</td>
@@ -29,7 +28,8 @@
   <% end %>
 </table>
 
-<h3>Employees</h3>
+<h4>Employees</h4>
+<%= link_to  "Add Employee", new_employee_path %>
 <table class="table">
   <tr>
     <td>Employee Name</td>

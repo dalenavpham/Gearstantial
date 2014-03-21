@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_filter :find_employee, :only => [:show, :edit, :update, :destroy]
   def new
     @employee = Employee.new
   end
@@ -9,10 +10,11 @@ class EmployeesController < ApplicationController
     # location = params[:employee][:location]
     # status = params[:employee][:status]
 
-    @employee = Employee.new(params.require(:employee).permit(:name, :location, :status))
+    @employee = Employee.new(permitted_params)
     @employee.save
 
-    render :show
+    #render :show
+    redirect_to items_path
   end
 
   def show
@@ -23,8 +25,29 @@ class EmployeesController < ApplicationController
   end
 
   def update
+    @employee.update_attributes(permitted_params)
+    @employee.save
+
+    redirect_to employees_path, flash: flash
+  end
+
+  def index
+    redirect_to items_path, flash: flash
   end
 
   def destroy
+    @employee.destroy
+    flash[:notice] = "Name: #{@employee.name} was deleted"
+
+    redirect_to items_path, flash: flash
+  end
+
+  def permitted_params
+    params.require(:employee).permit(:name, :location, :status)
+  end
+
+def find_employee
+    #binding.pry
+    @employee = Employee.find(params[:id])
   end
 end

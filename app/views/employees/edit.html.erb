@@ -1,0 +1,14 @@
+<h2>Edit Employee</h2>
+<% flash.each do |name, msg| %>
+  <p><%= "#{name} - #{msg}" %>To Edit, modify the form inputs</p>
+<% end %>
+
+<%= simple_form_for @employee do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :status %>
+  <%= f.button :submit %>
+<% end %>
+
+<br />
+<%= link_to  "Home", "/items" %>
