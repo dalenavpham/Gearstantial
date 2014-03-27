@@ -2,7 +2,7 @@
 <p><%= link_to  "Back", root_path %>  
   <%= link_to  "Edit Item", "/items/#{@item.id}/edit" %>   
   <%= link_to  "Add Item", new_item_path %>
-  <%= link_to "Remove Item", "/items/#{@item.id}", :confirm => 'Are you sure?', :method => :delete %>
+  <%= button_to "Remove Item", item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
 </p>
  <ul>
    <li>Item Name: <%= @item.name %></li>

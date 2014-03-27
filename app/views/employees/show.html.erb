@@ -2,7 +2,7 @@
 <p><%= link_to  "Back", root_path %>  
   <%= link_to  "Edit Employee", "/employees/#{@employee.id}/edit" %>   
   <%= link_to  "Add Employee", new_employee_path %>
-  <%= link_to "Remove Employee", "/employees/#{@employee.id}", :confirm => 'Are you sure?', :method => :delete %>
+  <%= link_to "Remove Employee", "/employees/#{@employee.id}", data: { confirm: 'Text' }, method: :delete %>
 </p>
  <ul>
    <li>Name: <%= @employee.name %></li>
