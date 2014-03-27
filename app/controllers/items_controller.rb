@@ -6,16 +6,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @my_item = permitted_params
-    puts "hello #{@my_item}"
-    @item = Item.new(@my_item)  
-    @item.save
-    if @item.save
-      redirect_to items_path, notice: "Item was created with id # #{@item.id}"
+    item = ItemFactory.build(permitted_params)
+
+    if item.save
+      redirect_to items_path, notice: "Item was created with id # #{item.id}"
     else
       render :new 
     end
-
   end
 
   def show
@@ -38,8 +35,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    #item = Item.find(params[:id])
-    @item.destroy
+    item = Item.find(params[:id])
+    item.destroy
     flash[:notice] = "Item name #{@item.name} was deleted"
     redirect_to items_path, flash: flash
   end
