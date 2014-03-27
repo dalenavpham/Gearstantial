@@ -6,15 +6,16 @@
 
 <h4>Your Items</h4>
 <%= link_to  "Add Item", new_item_path %> 
-<pre>To view item details, click on item name</pre>
+<pre>Inventory statistics will go here</pre>
 <table class="table">
   <tr>
-    <td>Item Name</td>
-    <td>Serial</td>
-    <td>Year Made</td>
-    <td>Date Purchased</td>
-    <td>Purchase Price</td>
-    <td>Additional Notes</td>
+    <th>Item Name</th>
+    <th>Serial</th>
+    <th>Year Made</th>
+    <th>Date Purchased</th>
+    <th>Purchase Price</th>
+    <th>Additional Notes</th>
+    <th>Assigned To:</th>
   </tr>
   <% @items.each do |item| %>
     <tr>
@@ -23,7 +24,8 @@
       <td><%= item.year %> </td>
       <td><%= item.purchase_date %> </td>
       <td><%= item.purchase_price %></td>
-      <tc><%= item.notes %></td>
+      <td><%= item.notes %></td>
+      <td><%= item.employee.name if item.employee %></td>
     </tr>
   <% end %>
 </table>
@@ -32,11 +34,11 @@
 <%= link_to  "Add Employee", new_employee_path %>
 <table class="table">
   <tr>
-    <td>Employee Name</td>
-    <td>Location</td>
-    <td>Status</td>
-    <td>Created On</td>
-    <td>Updated On</td>
+    <th>Employee Name</th>
+    <th>Location</th>
+    <th>Status</th>
+    <th>Created On</th>
+    <th>Updated On</th>
   </tr>
   <% @employees.each do |employee| %>
     <tr>

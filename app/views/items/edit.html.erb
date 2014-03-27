@@ -9,6 +9,8 @@
   <%= f.input :year, collection: 2008..2014 %>
   <%= f.input :purchase_date, as: :date %>
   <%= f.input :purchase_price %>
+  <%= f.association :employee %>
+  <%= f.input :notes, as: :text  %>
   <%= f.button :submit %>
 <% end %>
 

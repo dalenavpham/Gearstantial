@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @employee = Employee.find(params[:id])
   end
 
   def edit
@@ -44,7 +45,7 @@ class ItemsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:item).permit(:name, :serial, :year, :purchase_date, :purchase_price, :notes)
+    params.require(:item).permit(:name, :serial, :year, :purchase_date, :purchase_price, :notes, :employee_id)
   end
 
   def get_date

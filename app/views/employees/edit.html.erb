@@ -6,7 +6,7 @@
 <%= simple_form_for @employee do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
-  <%= f.input :status %>
+  <%= f.input :status, collection: ["Active", "Off-Site", "Contractor", "Need requested"], prompt: "Select status" %>
   <%= f.button :submit %>
 <% end %>
 

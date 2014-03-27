@@ -5,6 +5,6 @@
 <%= simple_form_for @employee, html_options: { class: "form-horizontal" } do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
-  <%= f.input :status %>
+  <%= f.input :status, collection: ["Active", "Off-Site", "Contractor", "Need requested"], prompt: "Select status" %>
   <%= f.button :submit %>
 <% end %>
