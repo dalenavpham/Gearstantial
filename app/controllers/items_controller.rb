@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @employee = Employee.find(params[:id])
   end
 
   def edit
