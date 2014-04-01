@@ -13,7 +13,7 @@
    <li>Created On: <%= @item.created_at %></li>
    <li>Updated On: <%= @item.updated_at %></li>
    <li>Notes: <%= @item.notes %> </li>
-   <li>Assigned To: <%= @item.employee.id %></li>
+   <li>Assigned To: <%= @item.employee.name if @item.employee %></li>
 </ul>
 
 

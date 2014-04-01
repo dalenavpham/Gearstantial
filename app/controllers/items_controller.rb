@@ -6,10 +6,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = ItemFactory.build(permitted_params)
+    @item = Item.new(permitted_params)
 
-    if item.save
-      redirect_to items_path, notice: "Item was created with id # #{item.id}"
+    if @item.save
+      redirect_to items_path, notice: "Item was created with id # #{@item.id}"
     else
       render :new 
     end
@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
 
   def update
     @item.update_attributes(permitted_params)
-    @item.save
 
     flash[:notice] = "Item was updated with id # #{@item.id}"
     redirect_to items_path, flash: flash
@@ -45,13 +44,6 @@ class ItemsController < ApplicationController
 
   def permitted_params
     params.require(:item).permit(:name, :serial, :year, :purchase_date, :purchase_price, :notes, :employee_id)
-  end
-
-  def get_date
-    date = params[:item][:purchase_date]
-    unless date.nil?
-      params[:item][:purchase_date] = DateTime.strptime(date, '%m/%d/%Y')
-    end
   end
 
   def find_item
