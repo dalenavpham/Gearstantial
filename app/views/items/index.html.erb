@@ -12,6 +12,7 @@
     <th>Item Name</th>
     <th>Serial</th>
     <th>Year Made</th>
+    <th>Location</th>
     <th>Date Purchased</th>
     <th>Purchase Price</th>
     <th>Additional Notes</th>
@@ -22,6 +23,7 @@
       <td><%= link_to item.name, "items/#{item.id}" %> </td>
       <td><%= item.serial %> </td>
       <td><%= item.year %> </td>
+      <td><%= item.location %></td>
       <td><%= item.purchase_date %> </td>
       <td><%= item.purchase_price %></td>
       <td><%= item.notes %></td>

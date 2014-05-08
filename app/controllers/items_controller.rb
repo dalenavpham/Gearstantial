@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:item).permit(:name, :serial, :year, :purchase_date, :purchase_price, :notes, :employee_id)
+    params.require(:item).permit(:name, :serial, :year, :location, :purchase_date, :purchase_price, :notes, :employee_id)
   end
 
   def find_item

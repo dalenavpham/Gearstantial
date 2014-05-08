@@ -2,6 +2,7 @@ class EmployeesController < ApplicationController
   before_filter :find_employee, :only => [:show, :edit, :update, :destroy]
   def new
     @employee = Employee.new
+    @locations = ["Seattle HQ", "Seattle South", "San Francisco"]
   end
 
   def create

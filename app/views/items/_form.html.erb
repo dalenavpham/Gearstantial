@@ -5,6 +5,7 @@
   <%= f.input :purchase_date, as: :date %>
   <%= f.input :purchase_price, as: :float %>
   <%= f.input :notes, as: :text %>
+  <%= f.input :location, collection: ["Seattle HQ", "Seattle South", "San Francisco"], prompt: "Select Location" %>
   <%= f.association :employee %>
   <%= f.button :submit %>
 <% end %>

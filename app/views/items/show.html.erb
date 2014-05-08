@@ -1,14 +1,14 @@
 <h2>Item Details</h2>
 <p><%= link_to  "Back", root_path %>  
   <%= link_to  "Edit Item", "/items/#{@item.id}/edit" %>   
-  <%= link_to  "Add Item", new_item_path %>
   <%= button_to "Remove Item", item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
 </p>
  <ul>
    <li>Item Name: <%= @item.name %></li>
-   <li>Serial: <%= @item.serial %> </li>
+   <li>Serial:  <%= @item.serial %> </li>
    <li>Production Year: <%= @item.year %></li>
    <li>Purchase Date: <%= @item.purchase_date %></li>
+   <li>Location: <%= @item.location %></li>
    <li>Purchase Price: $<%= @item.purchase_price %></li>
    <li>Created On: <%= @item.created_at %></li>
    <li>Updated On: <%= @item.updated_at %></li>
