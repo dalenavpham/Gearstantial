@@ -14,8 +14,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(permitted_params)
     @employee.save
 
-    #render :show
-    redirect_to items_path
+    #redirect_to items_path
   end
 
   def show
@@ -29,11 +28,12 @@ class EmployeesController < ApplicationController
     @employee.update_attributes(permitted_params)
     @employee.save
 
-    redirect_to employees_path, flash: flash
+    #redirect_to employees_path, flash: flash
   end
 
   def index
-    redirect_to items_path, flash: flash
+    #redirect_to items_path, flash: flash
+    @employee = Employee.all
   end
 
   def destroy
