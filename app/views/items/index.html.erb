@@ -24,8 +24,8 @@
       <td><%= item.serial %> </td>
       <td><%= item.year %> </td>
       <td><%= item.location %></td>
-      <td><%= item.purchase_date %> </td>
-      <td><%= item.purchase_price %></td>
+      <td><%= item.purchase_date.strftime("%D") %> </td>
+      <td><%= number_to_currency(item.purchase_price, precision:2) %></td>
       <td><%= item.notes %></td>
       <td><%= item.employee.name if item.employee %></td>
     </tr>
